@@ -12,11 +12,12 @@
     "build:cjs": "tsc -m commonjs --outDir lib/cjs/",
     "build:esm": "tsc -m esnext --outDir lib/ems/",
     "lint": "npx eslint src/",
+    "format": "prettier --write \"src/**/*.ts\"",
     "prepare": "npm run build",
+    "prepublishOnly": "npm run test && npm run lint",
     "preversion": "npm run lint",
-    "version": "npm run lint",
-    "postversion": "git push --follow-tags",
-    "prepublishOnly": "npm run test"
+    "version": "npm run format && git add -A src",
+    "postversion": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
