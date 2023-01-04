@@ -57,6 +57,9 @@
     "github": {
       "release": true
     },
+    "npm": {
+      "release": false
+    },
     "hooks": {
       "before:init": ["npm run lint", "npm test"],
       "after:bump": "npm run build",
